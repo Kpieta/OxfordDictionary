@@ -19,9 +19,24 @@ android {
     }
 
     buildTypes {
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        flavorDimensions "build"
+        productFlavors{
+            dev{
+                buildConfigField 'String', 'API_KEY', '"ad915499fb6152da7703cba7ccb69e12"'
+                buildConfigField 'String', 'API_ID', '"7f925ba2"'
+                buildConfigField 'String', 'API_URL', '"https://od-api.oxforddictionaries.com/api/v2/"'
+            }
         }
     }
     compileOptions {
@@ -46,7 +61,8 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     //okhttp
-    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
     //moshi
     implementation "com.squareup.moshi:moshi:$moshiVersion"
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
