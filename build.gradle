@@ -6,6 +6,9 @@ buildscript {
     }
     ext{
         hiltVersion = "2.40.5"
+        moshiVersion = "1.12.0"
+        retrofitVersion = "2.9.0"
+        okhttpVersion = "4.9.0"
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.3"
